@@ -21,8 +21,8 @@ with tab_1:
     
     #프로젝트 수행일정
     st.subheader(":two: 프로젝트 세부계획") 
-   # a = st.image("useData/OOF/plan.png", use_column_width=True)
-    b = st.image("../useData/OOF/convention.png", use_column_width=True)
+    a = st.image("useData/OOF/plan.png", use_column_width=True)
+    b = st.image("useData/OOF/convention.png", use_column_width=True)
     st.markdown("-----")
     #팀 정보
     st.subheader(":three: 수행팀원 및 역할") 
