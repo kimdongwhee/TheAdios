@@ -26,3 +26,4 @@ streamlit_folium
 folium
 st-pages
 scipy
+tensorflow
