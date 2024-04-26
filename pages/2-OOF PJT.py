@@ -21,7 +21,7 @@ with tab_1:
     
     #프로젝트 수행일정
     st.subheader(":two: 프로젝트 세부계획") 
-    a = st.image("useData/OOF/plan.png", use_column_width=True)
+   # a = st.image("useData/OOF/plan.png", use_column_width=True)
     b = st.image("./useData/OOF/convention.png", use_column_width=True)
     st.markdown("-----")
     #팀 정보
@@ -41,7 +41,7 @@ with tab_1:
                    hide_index = True, use_container_width=True)
     
     col_1, col_2 = st.columns(2) #영역구분
-    col_1.text(f"(3)Git 주소\n(https://github.com/kimdongwhee/secondPJT_Adios)")
+    col_1.text(f"(3)Git 주소\n(https://github.com/kimdongwhee/TheAdios.git)")
     col_2.link_button(label="Git 바로가기", url="https://github.com/kimdongwhee/secondPJT_Adios", use_container_width=True)
     col_1.text(f"(4)Google 드라이브")
     col_2.link_button(label="Google 드라이브 바로가기", url="https://drive.google.com/drive/folders/1iy4h1HnOX9Y316nLQ38MHKoESUCjM1qm?usp=sharing", use_container_width=True)
