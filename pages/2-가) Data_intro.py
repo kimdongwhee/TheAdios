@@ -73,10 +73,10 @@ with tab4:
     (10) 펀칭(빈도)(Tendency To Punch): 펀칭 빈도는 골키퍼가 가능하면 공을 잡으려 하는지 아니면 펀칭으로 걷어내는 걸 선호하는지 나타낸다. 이 등급이 높으면 골키퍼가 공을 잡을 수 있을 때도 펀칭으로 걷어낸다는 뜻. 장단점이 있는 능력치. 높을수록 상대 슈팅을 쉽게 막지만 펀칭 후 루즈볼에 실점할 가능성이 높아지며, 낮으면 펀칭을 거의 안 하고 공을 잡으려고 시도해 루즈볼 기회를 주지 않지만 역효과로 상대 슈팅을 못 막게 될 수 있다. 높으면 스카우터들이 단점으로 지적하는 것으로 볼 때, 시스템적으로는 낮은 선수가 높은 평가를 받는다. 단, 비가 오는 경기에선 펀칭빈도가 높은 골키퍼를 사용하는 것이 더 효율적이다.\n
     (11) 페널티 박스 장악력(Command Of Area): 페널티 박스 장악력은 수비수와 협력해서 페널티 박스를 장악하는 골키퍼의 능력을 나타낸다. 이 등급이 높아서 박스 전체를 장악하는 골키퍼는 거의 본능적으로 날아오는 크로스를 비롯한 각종 상황에 대처한다. (이 때 공중 장악력이 높으면 도움이 된다) 하지만 이 등급이 높아도 골키퍼가 크로스를 잡으려 할 가능성만 오를 뿐, 잡아낸다는 보장은 없다.''')
 
-sinbang = pd.read_csv("./useData/GK_kshi.csv")
+sinbang = pd.read_csv("./useData/OOF/GK_kshi.csv")
 st.dataframe(sinbang, hide_index = True, use_container_width=True)
 #데이터 불러오기
-raw_file = open("./useData/player_link_url.txt", "r")
+raw_file = open("./useData/OOF/player_link_url.txt", "r")
 raw_list = raw_file.read().split("\n")
 st.download_button(label="Download rawdata",
         data=f"'{raw_list}'",
@@ -239,7 +239,7 @@ st.markdown(":white_check_mark:데이터 출처 : FotMob(https://www.fotmob.com/
 st.markdown(":white_check_mark:데이터 소개 : 23년도, 24년도 유렵축구 5 대리그별 경기결과와 경기별 출전선수 라인업 정보가 포함되어있는 데이터")
 st.markdown(":white_check_mark: 데이터 활용계획")
 st.text("- 승부 예측(팀/포지션별 속성 수치 기반)\n- 랭체인기반 챗봇(선수정보 등)")
-st.dataframe(pd.read_csv("./useData/match_result.csv"), hide_index = True, use_container_width=True)
+st.dataframe(pd.read_csv("./useData/OOF/match_result.csv"), hide_index = True, use_container_width=True)
 st.markdown(":floppy_disk: 5대 리그별 경기결과 크롤링 코드")
 st.code('''
 import selenium
@@ -474,23 +474,23 @@ st.text("- 포지션별 유사선수 클러스터링\n- 선수 몸값 예측\n- 
 tab1, tab2, tab3, tab4, tab5 = st.tabs(['England', 'Germany', 'Spain', 'Italy', 'France'])
 
 with tab1:
-    eng_player = pd.read_csv("./useData/transfermarket_englandtotal.csv")
+    eng_player = pd.read_csv("./useData/OOF/transfermarket_englandtotal.csv")
     st.dataframe(eng_player, use_container_width=True, hide_index=True)
 
 with tab2:
-    ger_player = pd.read_csv("./useData/transfermarket_germanytotal.csv")
+    ger_player = pd.read_csv("./useData/OOF/transfermarket_germanytotal.csv")
     st.dataframe(ger_player, use_container_width=True, hide_index=True)
 
 with tab3:
-    spain_player = pd.read_csv("./useData/transfermarket_spaintotal.csv")
+    spain_player = pd.read_csv("./useData/OOF/transfermarket_spaintotal.csv")
     st.dataframe(spain_player, use_container_width=True, hide_index=True)
 
 with tab4:
-    italy_player = pd.read_csv("./useData/transfermarket_italytotal.csv")
+    italy_player = pd.read_csv("./useData/OOF/transfermarket_italytotal.csv")
     st.dataframe(italy_player, use_container_width=True, hide_index=True)
 
 with tab5:
-    france_player = pd.read_csv("./useData/transfermarket_francetotal.csv")
+    france_player = pd.read_csv("./useData/OOF/transfermarket_francetotal.csv")
     st.dataframe(france_player, use_container_width=True, hide_index=True)   
 
 
@@ -500,4 +500,4 @@ st.markdown(":white_check_mark:데이터 출처")
 st.text("- BBC Sports(영국 링크) : https://www.bbc.com/sport/football\n- Kicker(독일 링크) : http://www.kicker.de/\n- ABC Deportes(스페인 링크) : http://www.abc.es/deportes/futbol-formula1-tenis.asp\n- Gianluca Dimarzio(이탈리아 링크) : http://gianlucadimarzio.com/")
 st.markdown(":white_check_mark: 데이터 활용계획")
 st.text("주기별로 해외 4개국 주요 축구뉴스 사이트에서 수집한 데이터를 활용해 Lang-Chain 기반의 자동번역/요약을 통한 정보제공")
-st.image("./useData/news.png")
+st.image("./useData/OOF/news.png")
