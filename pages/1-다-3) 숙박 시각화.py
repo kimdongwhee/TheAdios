@@ -14,7 +14,7 @@ df1= pd.read_excel('./useData/Busan/평점 4이상 숙박업소.xlsx')
 def hotel_folium_gen():
     map = folium.Map(location=[35.10474134282243, 129.040661589673], zoom_start=14)
     for i in range(len(df1)):
-        custom_icon = folium.CustomIcon(icon_image= 'icon/숙박업소.png', icon_size=(30, 30))
+        custom_icon = folium.CustomIcon(icon_image= './useData/Busan//숙박업소.png', icon_size=(30, 30))
         popup_text = f"업소명: {df1['업소명'][i]}<br>평점: {df1['평점'][i]}<br>구분: {df1['구분'][i]}"
         html = folium.Html(popup_text, script=True)
         popup = folium.Popup(html, max_width=200, parse_html=False)

@@ -14,7 +14,7 @@ df2=pd.read_excel('./useData/Busan/관광지 위경도.xlsx')
 def place_folium_gen():
     map = folium.Map(location=[35.10474134282243, 129.040661589673], zoom_start=11)
     for i in range(len(df2)):
-        custom_icon = folium.CustomIcon(icon_image= 'icon/관광지.png', icon_size=(30, 30))
+        custom_icon = folium.CustomIcon(icon_image= './useData/Busan//관광지.png', icon_size=(30, 30))
         popup_text = f"관광지명: {df2['title'][i]}<br>평점: {df2['rating'][i]}<br>구분: {df2['category'][i]}<br>주소: {df2['address'][i]}"
         html = folium.Html(popup_text, script=True)
         popup = folium.Popup(html, max_width=200, parse_html=False)

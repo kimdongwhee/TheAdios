@@ -15,7 +15,7 @@ df=pd.read_excel('./useData/Busan/평점 4이상 맛집리스트.xlsx',index_col
 def rest_folium_gen():
     map = folium.Map(location=[35.10474134282243, 129.040661589673], zoom_start=15)
     for i in range(len(df)):
-        custom_icon = folium.CustomIcon(icon_image= 'icon/식당.png', icon_size=(30, 30))
+        custom_icon = folium.CustomIcon(icon_image= './useData/Busan//식당.png', icon_size=(30, 30))
         popup_text = f"가게명: {df['가게명'][i]}<br>평점: {df['평점'][i]}<br>구분: {df['구분'][i]}<br>주소 : {df['주소1'][i]}"
         html = folium.Html(popup_text, script=True)
         popup = folium.Popup(html, max_width=200, parse_html=False)

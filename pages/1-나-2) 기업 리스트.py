@@ -37,16 +37,16 @@ def folium_gen():
 
     # 카테고리에 따라 마커 지정
     icon_paths = {
-        '육류': 'icon/meat.png',
-        '식품': 'icon/food.png',
-        '주류': 'icon/beer.png',
-        '기타': 'icon/etc.png'
+        '육류': './useData/Busan//meat.png',
+        '식품': './useData/Busan//food.png',
+        '주류': './useData/Busan//beer.png',
+        '기타': './useData/Busan//etc.png'
     }
 
     # 각 업체별로 마커 생성
     for index, row in company_selected_type.iterrows():
         tooltip = f"카테고리: {row['카테고리']}<br>회사명: {row['회사명']}<br>주소: {row['주소']}<br>전화번호: {row['전화번호']}"
-        icon_path = icon_paths.get(row['카테고리'], 'icon/default.png')
+        icon_path = icon_paths.get(row['카테고리'], './useData/Busan//default.png')
         icon = folium.CustomIcon(icon_path, icon_size=(40, 40))
         folium.Marker([row['lat'], row['lng']], 
                     icon=icon,
