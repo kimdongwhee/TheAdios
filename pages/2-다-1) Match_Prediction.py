@@ -22,7 +22,7 @@ with tab_1:
     gkPlayer['player_nm']=gkName
 
     # 필드플레이어 스탯 로드
-    ngkPlayer=pd.read_csv('./useData/OOF/UNGK_kshi.csv')[['player_nm','player_overall','player_team','player_position']]
+    ngkPlayer=pd.read_csv('./useData/OOF/UNGK_final.csv')[['player_nm','player_overall','player_team','player_position']]
     # 이름 영어로 변환
     ngkName=[]
     for idx,rows in ngkPlayer.iterrows():
@@ -251,7 +251,7 @@ with tab_1:
     gkPlayer['player_nm']=gkName
 
     # 필드플레이어 스탯 로드
-    ngkPlayer=pd.read_csv('./useData/OOF/UNGK_kshi.csv',encoding='utf-16')[['player_nm','player_overall','player_team','player_position']]
+    ngkPlayer=pd.read_csv('./useData/OOF/UNGK_final.csv',encoding='utf-16')[['player_nm','player_overall','player_team','player_position']]
     # 이름 영어로 변환
     ngkName=[]
     for idx,rows in ngkPlayer.iterrows():
