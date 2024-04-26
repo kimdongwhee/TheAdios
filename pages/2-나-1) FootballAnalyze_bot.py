@@ -26,7 +26,7 @@ myOpenAI_key = st.secrets["myOpenAI"]
 # myOpenAI_key = os.getenv("myOpenAI")
 #데이터 로드 및 변수
 # └ 챗봇 데이터
-all_player = pd.read_csv("./useData/total_all_position.csv", encoding="utf-16", index_col=0) #첫열 삭제를 위해 index_col 사용
+all_player = pd.read_csv("./useData/OOF/total_all_position.csv", encoding="utf-16", index_col=0) #첫열 삭제를 위해 index_col 사용
 # └ 선수비교 데이터
 #=======================================================================================================================
 #streamlit 페이지 활용범위 설정
@@ -94,7 +94,7 @@ with tab_1:
                         # AI 답변
                         with st.chat_message("assistant"):
                             st.write(AIresponse) #답변
-                            st.image("./useData/save_fig_default.png") #위에서 저장한 시각화차트 출력
+                            st.image("./useData/OOF/save_fig_default.png") #위에서 저장한 시각화차트 출력
                             st.session_state["messages"].append(ChatMessage(role="assistant", content=AIresponse))
 
             #예외처리
