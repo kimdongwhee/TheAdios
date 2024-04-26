@@ -9,7 +9,7 @@ from PIL import Image
 st.set_page_config(layout='wide')
 st.title('맛집 시각화')
 st.markdown('''-----''')
-df=pd.read_excel('data/평점 4이상 맛집리스트.xlsx',index_col=0)
+df=pd.read_excel('./useData/Busan/평점 4이상 맛집리스트.xlsx',index_col=0)
 
 @st.cache_data
 def rest_folium_gen():

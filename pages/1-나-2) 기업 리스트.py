@@ -8,7 +8,7 @@ from streamlit_folium import st_folium
 st.set_page_config(layout='wide')
 st.title('업종별 기업 리스트 소싱')
 st.markdown('''-----''')
-company_list_df=pd.read_csv('data/카테고리별 기업 리스트 최종본.csv').drop('Unnamed: 0',axis=1)
+company_list_df=pd.read_csv('./useData/Busan/카테고리별 기업 리스트 최종본.csv').drop('Unnamed: 0',axis=1)
 company_type_list=list(set(company_list_df['카테고리']))
 company_type=st.multiselect('업종 선택',
                             company_type_list)

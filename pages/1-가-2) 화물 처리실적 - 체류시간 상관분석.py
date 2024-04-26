@@ -8,7 +8,7 @@ import scipy.stats as stats
 
 st.title('년/월별 화물처리량 - 체류시간 상관분석')
 st.markdown('''-----''')
-ship_stayed_df=pd.read_csv('data/처리실적-체류시간_상관분석.csv').drop('Unnamed: 0',axis=1)
+ship_stayed_df=pd.read_csv('./useData/Busan/처리실적-체류시간_상관분석.csv').drop('Unnamed: 0',axis=1)
 ship_stayed_df.rename(columns={'컨테이너':'화물처리량',
                                '체류시간_totalTime(시간)':'체류시간'},
                       inplace=True)

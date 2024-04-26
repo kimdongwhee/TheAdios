@@ -9,7 +9,7 @@ from PIL import Image
 st.set_page_config(layout='wide')
 st.title('관광지 시각화')
 st.markdown('''-----''')
-df2=pd.read_excel('data/관광지 위경도.xlsx')
+df2=pd.read_excel('./useData/Busan/관광지 위경도.xlsx')
 @st.cache_data
 def place_folium_gen():
     map = folium.Map(location=[35.10474134282243, 129.040661589673], zoom_start=11)

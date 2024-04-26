@@ -1,6 +1,6 @@
 import streamlit as st
 st.set_page_config(layout='wide')
-st.image('img/나).png')
+st.image('./useData/Busan/나).png')
 st.markdown(
     '''
         ##### 1. 위 이미지와 같이, 현재 부산에는 :red[해외선사 및 외국인 선원들을 위한 선용품 구매 플랫폼이 없는 상황]임.

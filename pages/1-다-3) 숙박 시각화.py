@@ -9,7 +9,7 @@ from PIL import Image
 st.set_page_config(layout='wide')
 st.title('숙박업소 시각화')
 st.markdown('''-----''')
-df1= pd.read_excel('data/평점 4이상 숙박업소.xlsx')
+df1= pd.read_excel('./useData/Busan/평점 4이상 숙박업소.xlsx')
 @st.cache_data
 def hotel_folium_gen():
     map = folium.Map(location=[35.10474134282243, 129.040661589673], zoom_start=14)

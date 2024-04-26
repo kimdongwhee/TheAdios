@@ -9,17 +9,17 @@ from plotly.subplots import make_subplots
 st.set_page_config(layout='wide')
 st.title('년도 / 분기별 선용품 품목 시각화')
 st.markdown('''-----''')
-popular_ship_goods_18_df=pd.read_csv('data/2018년도 분기별 품목 합.csv')
+popular_ship_goods_18_df=pd.read_csv('./useData/Busan/2018년도 분기별 품목 합.csv')
 popular_ship_goods_18_df['년도']=2018
-popular_ship_goods_19_df=pd.read_csv('data/2019년도 분기별 품목 합.csv')
+popular_ship_goods_19_df=pd.read_csv('./useData/Busan/2019년도 분기별 품목 합.csv')
 popular_ship_goods_19_df['년도']=2019
-popular_ship_goods_20_df=pd.read_csv('data/2020년도 분기별 품목 합.csv')
+popular_ship_goods_20_df=pd.read_csv('./useData/Busan/2020년도 분기별 품목 합.csv')
 popular_ship_goods_20_df['년도']=2020
-popular_ship_goods_21_df=pd.read_csv('data/2021년도 분기별 품목 합.csv')
+popular_ship_goods_21_df=pd.read_csv('./useData/Busan/2021년도 분기별 품목 합.csv')
 popular_ship_goods_21_df['년도']=2021
-popular_ship_goods_22_df=pd.read_csv('data/2022년도 분기별 품목 합.csv')
+popular_ship_goods_22_df=pd.read_csv('./useData/Busan/2022년도 분기별 품목 합.csv')
 popular_ship_goods_22_df['년도']=2022
-popular_ship_goods_23_df=pd.read_csv('data/2023년도 분기별 품목 합.csv')
+popular_ship_goods_23_df=pd.read_csv('./useData/Busan/2023년도 분기별 품목 합.csv')
 popular_ship_goods_23_df['년도']=2023
 
 df_list=[popular_ship_goods_18_df,
