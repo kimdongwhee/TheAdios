@@ -72,9 +72,9 @@ def main():
     st.subheader(SUB_TITLE_1)
 
     # Load data
-    FW_df = pd.read_csv('./useData/OOF/Scaled_ST.csv', encoding='utf-16', index_col=0)
-    MID_df = pd.read_csv('./useData/OOF/Scaled_MID.csv', encoding='utf-16', index_col=0)
-    DF_df = pd.read_csv('./useData/OOF/Scaled_DC.csv', encoding='utf-16', index_col=0)
+    FW_df = pd.read_csv('./useData/OOF/Scaled_ST_final.csv', encoding='utf-16', index_col=0)
+    MID_df = pd.read_csv('./useData/OOF/Scaled_MID_final.csv', encoding='utf-16', index_col=0)
+    DF_df = pd.read_csv('./useData/OOF/Scaled_DC_final.csv', encoding='utf-16', index_col=0)
     
     # Load Scaler
     with open('./useData/OOF/OP_ST_Scaler.pkl', 'rb') as f:
