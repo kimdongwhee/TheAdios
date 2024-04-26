@@ -120,7 +120,7 @@ with tab_2:
     gkStatsDf['player_nm']=gkPlayer
 
     # 필드플레이어 데이터프레임
-    ngkStatsDf=pd.read_csv('./useData/OOF/UNGK.csv',index_col=0,encoding='utf-16').\
+    ngkStatsDf=pd.read_csv('./useData/OOF/UNGK_kshi.csv',index_col=0,encoding='utf-16').\
         drop(['player_overall','player_potential'],axis=1)
 
     # 선수이름 모두 영어로 변환
@@ -615,7 +615,7 @@ with tab_3:
         gkStatsDf['player_nm']=gkPlayer
     
         # 필드플레이어 데이터프레임
-        ngkStatsDf=pd.read_csv('./useData/OOF/UNGK.csv',index_col=0,encoding='utf-16').\
+        ngkStatsDf=pd.read_csv('./useData/OOF/UNGK_kshi.csv',index_col=0,encoding='utf-16').\
             drop(['player_overall','player_potential'],axis=1)
     
         # 선수이름 모두 영어로 변환
