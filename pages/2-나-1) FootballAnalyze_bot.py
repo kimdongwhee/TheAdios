@@ -26,7 +26,7 @@ myOpenAI_key = st.secrets["myOpenAI"]
 # myOpenAI_key = os.getenv("myOpenAI")
 #데이터 로드 및 변수
 # └ 챗봇 데이터
-all_player = pd.read_csv("./useData/OOF/total_all_position.csv", encoding='utf-8',index_col=0) #첫열 삭제를 위해 index_col 사용
+all_player = pd.read_csv("./useData/OOF/total_all_position_kshi.csv",index_col=0) #첫열 삭제를 위해 index_col 사용
 # └ 선수비교 데이터
 #=======================================================================================================================
 #streamlit 페이지 활용범위 설정
