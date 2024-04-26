@@ -9,7 +9,7 @@ with tab_1:
     #개요
     st.subheader(":one: 프로젝트명 : OOF(Oracle of Football) 서비스")
     st.caption("영화 매트릭스의 오라클은 **예언자**로 등장한다. 매트릭스에서 일어날 일들을 모두 관찰하여, 네오에게 **조언과 예측**으로 길을 이끌어주고 선택하게 만든다.\n매트릭스의 오라클과 같이 :red[**'Oracle of Football' 은 실제 유럽 리그별 팀 스카우터들이 기록한 실제 데이터**]를 바탕으로 축구와 관련된 모든 사용자들에게 아래와 같은 서비스를 제공할 수 있다.")
-    a = st.image("./useData/Oracle.jpg", use_column_width=True)
+    a = st.image("./useData/OOF/Oracle.jpg", use_column_width=True)
     st.markdown("-----")
     #개요>표1
     st.text("구현기능 총 6개 중 완료 6개(진행률 : 100%)")
@@ -22,8 +22,8 @@ with tab_1:
     
     #프로젝트 수행일정
     st.subheader(":two: 프로젝트 세부계획") 
-    a = st.image("./useData/plan.png", use_column_width=True)
-    b = st.image("./useData/convention.png", use_column_width=True)
+    a = st.image("./useData/OOF/plan.png", use_column_width=True)
+    b = st.image("./useData/OOF/convention.png", use_column_width=True)
     st.markdown("-----")
     #팀 정보
     st.subheader(":three: 수행팀원 및 역할") 

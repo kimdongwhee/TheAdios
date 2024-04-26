@@ -47,7 +47,7 @@ with tab_1:
         #랭체인
         # └ 랭체인 MODEL 생성
         # 데이터 로드
-        loader = CSVLoader('./useData/matchResult_bot_data.csv')
+        loader = CSVLoader('./useData/OOF/matchResult_bot_data.csv')
         matchResult = loader.load()
         # 텍스트 나누기
         text_splitter = RecursiveCharacterTextSplitter(separators = "\n",
@@ -109,7 +109,7 @@ if user_input := st.chat_input("분석할 내용을 입력해주세요."):
     #랭체인
     # └ 랭체인 MODEL 생성
     # 데이터 로드
-    loader = CSVLoader('./useData/matchResult_bot_data.csv')
+    loader = CSVLoader('./useData/OOF/matchResult_bot_data.csv')
     matchResult = loader.load()
     # 텍스트 나누기
     text_splitter = RecursiveCharacterTextSplitter(separators = "\n",

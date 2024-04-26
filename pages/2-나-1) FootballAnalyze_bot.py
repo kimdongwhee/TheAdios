@@ -88,7 +88,7 @@ with tab_1:
                             st.write(AIresponse)
                             st.session_state["messages"].append(ChatMessage(role="assistant", content=AIresponse))
                     else: #(2) plt가 포함안되어 있을때 질문과 답 이미지 출력
-                        save_img = visual_query + "\nplt.savefig('./useData/save_fig_default.png')" #visual 쿼리는 openai가 시각화차트를 그려준 파이썬 코드가 담겨있음. 경로를 지정하여 시각화 이미지 생성하고 답변에서 함꼐보여줌
+                        save_img = visual_query + "\nplt.savefig('./useData/OOF/save_fig_default.png')" #visual 쿼리는 openai가 시각화차트를 그려준 파이썬 코드가 담겨있음. 경로를 지정하여 시각화 이미지 생성하고 답변에서 함꼐보여줌
                         df = all_player.copy() #시각화 파이썬 코드를 재실행하기위해 해당코드와 아래코드 실행
                         finish_img = exec(save_img)
                         # AI 답변
@@ -110,7 +110,7 @@ with tab_1:
 with tab_2:
     st.subheader(":two: Searching and Compare Player")
     # 골키퍼 데이터프레임
-    gkStatsDf=pd.read_csv('./useData/GK_kshi.csv',index_col=0,encoding='utf-16').\
+    gkStatsDf=pd.read_csv('./useData/OOF/GK_kshi.csv',index_col=0,encoding='utf-16').\
         drop(['player_position','player_overall','player_potential'],axis=1)
 
     # 선수이름 모두 영어로 변환
@@ -120,7 +120,7 @@ with tab_2:
     gkStatsDf['player_nm']=gkPlayer
 
     # 필드플레이어 데이터프레임
-    ngkStatsDf=pd.read_csv('./useData/UNGK.csv',index_col=0,encoding='utf-16').\
+    ngkStatsDf=pd.read_csv('./useData/OOF/UNGK.csv',index_col=0,encoding='utf-16').\
         drop(['player_overall','player_potential'],axis=1)
 
     # 선수이름 모두 영어로 변환
@@ -128,7 +128,7 @@ with tab_2:
     for idx,rows in ngkStatsDf.iterrows():
         ngkPlayer.append(ucd(rows['player_nm']))
 
-    file_path='./useData/stat_column_dict.json'      # 스탯 딕셔너리 로드 
+    file_path='./useData/OOF/stat_column_dict.json'      # 스탯 딕셔너리 로드 
     with open(file_path,'r') as json_file:      # {GK:{상위컬럼:[스탯 이름]},nGK:{상위컬럼:[스탯 이름]}}
         columnDict=json.load(json_file)
 
@@ -583,7 +583,7 @@ with tab_3:
                                 st.write(AIresponse)
                                 st.session_state["messages"].append(ChatMessage(role="assistant", content=AIresponse))
                         else: #(2) plt가 포함안되어 있을때 질문과 답 이미지 출력
-                            save_img = visual_query + "\nplt.savefig('./useData/save_fig_default.png')" #visual 쿼리는 openai가 시각화차트를 그려준 파이썬 코드가 담겨있음. 경로를 지정하여 시각화 이미지 생성하고 답변에서 함꼐보여줌
+                            save_img = visual_query + "\nplt.savefig('./useData/OOF/save_fig_default.png')" #visual 쿼리는 openai가 시각화차트를 그려준 파이썬 코드가 담겨있음. 경로를 지정하여 시각화 이미지 생성하고 답변에서 함꼐보여줌
                             df = all_player.copy() #시각화 파이썬 코드를 재실행하기위해 해당코드와 아래코드 실행
                             finish_img = exec(save_img)
                             # AI 답변
@@ -605,7 +605,7 @@ with tab_3:
     with tab_2:
         st.subheader(":two: Searching and Compare Player")
         # 골키퍼 데이터프레임
-        gkStatsDf=pd.read_csv('./useData/GK_kshi.csv',index_col=0,encoding='utf-16').\
+        gkStatsDf=pd.read_csv('./useData/OOF/GK_kshi.csv',index_col=0,encoding='utf-16').\
             drop(['player_position','player_overall','player_potential'],axis=1)
     
         # 선수이름 모두 영어로 변환
@@ -615,7 +615,7 @@ with tab_3:
         gkStatsDf['player_nm']=gkPlayer
     
         # 필드플레이어 데이터프레임
-        ngkStatsDf=pd.read_csv('./useData/UNGK.csv',index_col=0,encoding='utf-16').\
+        ngkStatsDf=pd.read_csv('./useData/OOF/UNGK.csv',index_col=0,encoding='utf-16').\
             drop(['player_overall','player_potential'],axis=1)
     
         # 선수이름 모두 영어로 변환
@@ -623,7 +623,7 @@ with tab_3:
         for idx,rows in ngkStatsDf.iterrows():
             ngkPlayer.append(ucd(rows['player_nm']))
     
-        file_path='./useData/stat_column_dict.json'      # 스탯 딕셔너리 로드 
+        file_path='./useData/OOF/stat_column_dict.json'      # 스탯 딕셔너리 로드 
         with open(file_path,'r') as json_file:      # {GK:{상위컬럼:[스탯 이름]},nGK:{상위컬럼:[스탯 이름]}}
             columnDict=json.load(json_file)
     
