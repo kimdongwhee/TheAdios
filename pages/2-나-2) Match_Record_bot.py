@@ -32,7 +32,7 @@ with tab_1:
     st.header("Match Record Ovis🤖🧠🚀") #로봇_얼굴::뇌::앵귈라_섬_깃발::우주_침략자:
     st.markdown("23/24년도 유럽 5대 리그 경기결과 관련 질의에 대한 답변이 가능한 챗봇 페이지")
     #Streamlit : 데이터 호출
-    raw_data = pd.read_csv("./useData/matchResult_bot_data.csv")
+    raw_data = pd.read_csv("./useData/OOF/matchResult_bot_data.csv")
     st.dataframe(raw_data, hide_index=True, use_container_width=True)
     #챗봇영역
     #초기화
@@ -94,7 +94,7 @@ with tab_2:
 st.header("Match Record Bot🤖🧠🚀") #로봇_얼굴::뇌::앵귈라_섬_깃발::우주_침략자:
 st.markdown("23/24년도 유럽 5대 리그 경기결과 관련 질의에 대한 답변이 가능한 챗봇 페이지")
 #Streamlit : 데이터 호출
-raw_data = pd.read_csv("./useData/matchResult_bot_data.csv")
+raw_data = pd.read_csv("./useData/OOF/matchResult_bot_data.csv")
 st.dataframe(raw_data, hide_index=True, use_container_width=True)
 #챗봇영역
 #초기화
