@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-from fpdf import FPDF
 
 st.header("The Team Adios Portfolio :people_holding_hands:")
 
