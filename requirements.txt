@@ -27,3 +27,4 @@ folium
 st-pages
 scipy
 tensorflow
+PDFplumber
