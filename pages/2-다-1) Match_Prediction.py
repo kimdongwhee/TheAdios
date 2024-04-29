@@ -14,11 +14,11 @@ with tab_1:
     model=tf.keras.models.load_model('./useData/OOF/match_pred_DL_bigDK.h5')     # 모델 로드
 
     # 골키퍼 스탯 로드
-    gkPlayer=pd.read_csv('./useData/OOF/GK.csv')[['player_nm','player_overall','player_team','player_position']]
+    gkPlayer=pd.read_csv('./useData/OOF/GK_average.csv')[['player_nm','player_overall','player_team','player_position']]
     # 이름 영어로 변환
     gkName=[]
     for idx,rows in gkPlayer.iterrows():
-        gkName.append(ucd(rows['player_nm']))
+        gkName.append(ucd(rows['player_nm']).strip())
     gkPlayer['player_nm']=gkName
 
     # 필드플레이어 스탯 로드
@@ -71,119 +71,139 @@ with tab_1:
                 # 수비수 4명 선택 컬럼
                 col_433_df1,col_433_df2,col_433_df3,col_433_df4=st.columns(4)
                 with col_433_df1:
+                    df_player_home=ngkPlayer.query("player_position=='DC'")
                     lb_433_player_home=st.selectbox('좌풀백',
-                                            list(ngkPlayer.query("player_position=='DC'")['player_nm']))
+                                            list(df_player_home['player_nm']))
                     lb_433_rating_home=ngkPlayer.query(f"player_nm=='{lb_433_player_home}'")['player_overall'].iloc[0]
+                    df1_home=df_player_home.query(f"player_nm!='{lb_433_player_home}'")
                     st.write(lb_433_rating_home)
                 with col_433_df2:
                     lcb_433_player_home=st.selectbox('좌센터백',
-                                            list(ngkPlayer.query("player_position=='DC'")['player_nm']))
+                                            list(df1_home['player_nm']))
                     lcb_433_rating_home=ngkPlayer.query(f"player_nm=='{lcb_433_player_home}'")['player_overall'].iloc[0]
+                    df2_home=df1_home.query(f"player_nm!='{lcb_433_player_home}'")
                     st.write(lcb_433_rating_home)
                 with col_433_df3:
                     rcb_433_player_home=st.selectbox('우센터백',
-                                            list(ngkPlayer.query("player_position=='DC'")['player_nm']))
+                                            list(df2_home['player_nm']))
                     rcb_433_rating_home=ngkPlayer.query(f"player_nm=='{rcb_433_player_home}'")['player_overall'].iloc[0]
+                    df3_home=df2_home.query(f"player_nm!='{rcb_433_player_home}'")
                     st.write(rcb_433_rating_home)
                 with col_433_df4:
                     rb_433_player_home=st.selectbox('우풀백',
-                                            list(ngkPlayer.query("player_position=='DC'")['player_nm']))
+                                            list(df3_home['player_nm']))
                     rb_433_rating_home=ngkPlayer.query(f"player_nm=='{rb_433_player_home}'")['player_overall'].iloc[0]
+                    df4_home=df3_home.query(f"player_nm!='{rb_433_player_home}'")
                     st.write(rb_433_rating_home)
 
                 # 미드필더 3명 선택 컬럼
                 col_433_mf1,col_433_mf2,col_433_mf3=st.columns(3)
                 with col_433_mf1:
+                    mf_player_home=ngkPlayer.query("player_position=='MID'")
                     lcm_433_player_home=st.selectbox('좌측 미드필더',
-                                            list(ngkPlayer.query("player_position=='MID'")['player_nm']))
+                                            list(mf_player_home['player_nm']))
                     lcm_433_rating_home=ngkPlayer.query(f"player_nm=='{lcm_433_player_home}'")['player_overall'].iloc[0]
+                    mf1_home=mf_player_home.query(f"player_nm!='{lcm_433_player_home}'")
                     st.write(lcm_433_rating_home)
                 with col_433_mf2:
                     cm_433_player_home=st.selectbox('중앙 미드필더',
-                                            list(ngkPlayer.query("player_position=='MID'")['player_nm']))
+                                            list(mf1_home['player_nm']))
                     cm_433_rating_home=ngkPlayer.query(f"player_nm=='{cm_433_player_home}'")['player_overall'].iloc[0]
+                    mf2_home=mf1_home.query(f"player_nm!='{cm_433_player_home}'")
                     st.write(cm_433_rating_home)
                 with col_433_mf3:
                     rcm_433_player_home=st.selectbox('우측 미드필더',
-                                            list(ngkPlayer.query("player_position=='MID'")['player_nm']))
+                                            list(mf2_home['player_nm']))
                     rcm_433_rating_home=ngkPlayer.query(f"player_nm=='{rcm_433_player_home}'")['player_overall'].iloc[0]
+                    mf3_home=mf2_home.query(f"player_nm!='{rcm_433_player_home}'")
                     st.write(rcm_433_rating_home)
                 
                 # 공격수 3명 선택 컬럼
                 col_433_fw1,col_433_fw2,col_433_fw3=st.columns(3)
                 with col_433_fw1:
+                    fw_player_home=ngkPlayer.query("player_position=='ST'")
                     lwf_433_player_home=st.selectbox('좌측 윙어',
-                                            list(ngkPlayer.query("player_position=='ST'")['player_nm']))
+                                            list(fw_player_home['player_nm']))
                     lwf_433_rating_home=ngkPlayer.query(f"player_nm=='{lwf_433_player_home}'")['player_overall'].iloc[0]
+                    fw1_home=fw_player_home.query(f"player_nm!='{lwf_433_player_home}'")
                     st.write(lwf_433_rating_home)
                 with col_433_fw2:
                     cf_433_player_home=st.selectbox('중앙 공격수',
-                                            list(ngkPlayer.query("player_position=='ST'")['player_nm']))
+                                            list(fw1_home['player_nm']))
                     cf_433_rating_home=ngkPlayer.query(f"player_nm=='{cf_433_player_home}'")['player_overall'].iloc[0]
+                    fw2_home=fw1_home.query(f"player_nm!='{cf_433_player_home}'")
                     st.write(cf_433_rating_home)
                 with col_433_fw3:
                     rwf_433_player_home=st.selectbox('우측 윙어',
-                                            list(ngkPlayer.query("player_position=='ST'")['player_nm']))
+                                            list(fw2_home['player_nm']))
                     rwf_433_rating_home=ngkPlayer.query(f"player_nm=='{rwf_433_player_home}'")['player_overall'].iloc[0]
+                    fw3_home=fw2_home.query(f"player_nm!='{rwf_433_player_home}'")
                     st.write(rwf_433_rating_home)
         # 어웨이팀 선택 컬럼
         with draftcol2_1:
-                gk_433_player_away=st.selectbox('골키퍼',list(gkPlayer['player_nm']),index=1)
+                gk_433_player_away=st.selectbox('골키퍼',list(gkPlayer.query(f"player_nm!='{gk_433_player_home}'")['player_nm']),index=1)
                 gk_433_rating_away=gkPlayer.query(f"player_nm=='{gk_433_player_away}'")['player_overall'].iloc[0]
                 st.write(gk_433_rating_away)
                 col_433_df1_away,col_433_df2_away,col_433_df3_away,col_433_df4_away=st.columns(4)
                 with col_433_df1_away:
                     lb_433_player_away=st.selectbox('좌풀백',
-                                            list(ngkPlayer.query("player_position=='DC'")['player_nm']),index=1)
+                                            list(df4_home['player_nm']),index=1)
                     lb_433_rating_away=ngkPlayer.query(f"player_nm=='{lb_433_player_away}'")['player_overall'].iloc[0]
+                    df1_away=df4_home.query(f"player_nm!='{lb_433_player_away}'")
                     st.write(lb_433_rating_away)
                 with col_433_df2_away:
                     lcb_433_player_away=st.selectbox('좌센터백',
-                                            list(ngkPlayer.query("player_position=='DC'")['player_nm']),index=1)
+                                            list(df1_away['player_nm']),index=1)
                     lcb_433_rating_away=ngkPlayer.query(f"player_nm=='{lcb_433_player_away}'")['player_overall'].iloc[0]
+                    df2_away=df1_away.query(f"player_nm!='{lcb_433_player_away}'")
                     st.write(lcb_433_rating_away)
                 with col_433_df3_away:
                     rcb_433_player_away=st.selectbox('우센터백',
-                                            list(ngkPlayer.query("player_position=='DC'")['player_nm']),index=1)
+                                            list(df2_away['player_nm']),index=1)
                     rcb_433_rating_away=ngkPlayer.query(f"player_nm=='{rcb_433_player_away}'")['player_overall'].iloc[0]
+                    df3_away=df2_away.query(f"player_nm!='{rcb_433_player_away}'")
                     st.write(rcb_433_rating_away)
                 with col_433_df4_away:
                     rb_433_player_away=st.selectbox('우풀백',
-                                            list(ngkPlayer.query("player_position=='DC'")['player_nm']),index=1)
+                                            list(df3_away['player_nm']),index=1)
                     rb_433_rating_away=ngkPlayer.query(f"player_nm=='{rb_433_player_away}'")['player_overall'].iloc[0]
                     st.write(rb_433_rating_away)
 
                 col_433_mf1_away,col_433_mf2_away,col_433_mf3_away=st.columns(3)
                 with col_433_mf1_away:
                     lcm_433_player_away=st.selectbox('좌측 미드필더',
-                                            list(ngkPlayer.query("player_position=='MID'")['player_nm']),index=1)
+                                            list(mf3_home['player_nm']),index=1)
                     lcm_433_rating_away=ngkPlayer.query(f"player_nm=='{lcm_433_player_away}'")['player_overall'].iloc[0]
+                    mf1_away=mf3_home.query(f"player_nm!='{lcm_433_player_away}'")
                     st.write(lcm_433_rating_away)
                 with col_433_mf2_away:
                     cm_433_player_away=st.selectbox('중앙 미드필더',
-                                            list(ngkPlayer.query("player_position=='MID'")['player_nm']),index=1)
+                                            list(mf1_away['player_nm']),index=1)
                     cm_433_rating_away=ngkPlayer.query(f"player_nm=='{cm_433_player_away}'")['player_overall'].iloc[0]
+                    mf2_away=mf1_away.query(f"player_nm!='{cm_433_player_away}'")
                     st.write(cm_433_rating_away)
                 with col_433_mf3_away:
                     rcm_433_player_away=st.selectbox('우측 미드필더',
-                                            list(ngkPlayer.query("player_position=='MID'")['player_nm']),index=1)
+                                            list(mf2_away['player_nm']),index=1)
                     rcm_433_rating_away=ngkPlayer.query(f"player_nm=='{rcm_433_player_away}'")['player_overall'].iloc[0]
                     st.write(rcm_433_rating_away)
                 
                 col_433_fw1_away,col_433_fw2_away,col_433_fw3_away=st.columns(3)
                 with col_433_fw1_away:
                     lwf_433_player_away=st.selectbox('좌측 윙어',
-                                            list(ngkPlayer.query("player_position=='ST'")['player_nm']),index=1)
+                                            list(fw3_home['player_nm']),index=1)
                     lwf_433_rating_away=ngkPlayer.query(f"player_nm=='{lwf_433_player_away}'")['player_overall'].iloc[0]
+                    fw1_away=fw3_home.query(f"player_nm!='{lwf_433_player_away}'")
                     st.write(lwf_433_rating_away)
                 with col_433_fw2_away:
                     cf_433_player_away=st.selectbox('중앙 공격수',
-                                            list(ngkPlayer.query("player_position=='ST'")['player_nm']),index=1)
+                                            list(fw1_away['player_nm']),index=1)
                     cf_433_rating_away=ngkPlayer.query(f"player_nm=='{cf_433_player_away}'")['player_overall'].iloc[0]
+                    fw2_away=fw1_away.query(f"player_nm!='{cf_433_player_away}'")
                     st.write(cf_433_rating_away)
                 with col_433_fw3_away:
                     rwf_433_player_away=st.selectbox('우측 윙어',
-                                            list(ngkPlayer.query("player_position=='ST'")['player_nm']),index=1)
+                                            list(fw2_away['player_nm']),index=1)
                     rwf_433_rating_away=ngkPlayer.query(f"player_nm=='{rwf_433_player_away}'")['player_overall'].iloc[0]
                     st.write(rwf_433_rating_away)
 
@@ -210,7 +230,12 @@ with tab_1:
 
         # 3개의 확률 중 가장 큰 값의 Index를 기준으로 승리 팀 출력
         winnerIndex=prediction.iloc[0].tolist().index(prediction.iloc[0].max())
-        st.markdown(f"### <center> {prediction.columns[winnerIndex].split('(')[0]} Win!!</center>",unsafe_allow_html=True)
+        if winnerIndex==0:
+            st.markdown('### <center> Draw!!</center>',unsafe_allow_html=True)
+        elif winnerIndex==1:
+            st.markdown('### <center> Away Win!!</center>',unsafe_allow_html=True)
+        else:
+            st.markdown('### <center> Home Win!!</center>',unsafe_allow_html=True)
         st.divider()
 
         # input 데이터프레임, output 확률 출력용 컬럼
@@ -219,6 +244,7 @@ with tab_1:
             st.markdown('#### <center> Input 데이터프레임</center>',unsafe_allow_html=True)
             st.dataframe(inputDf.iloc[:,:4],hide_index=True,use_container_width=True)
             st.dataframe(inputDf.iloc[:,4:],hide_index=True,use_container_width=True)
+        st.dataframe(model.predict(inputDf))
         with final_col2:
             st.markdown('#### <center> Output : 3개 클래스로 분류될 확률</center>',unsafe_allow_html=True)
             st.markdown(f"##### <center> 0 : 무승부 -> {prediction['Draw(0)'][0]*100} %</center>",unsafe_allow_html=True)
