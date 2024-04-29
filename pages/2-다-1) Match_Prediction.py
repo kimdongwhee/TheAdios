@@ -244,7 +244,6 @@ with tab_1:
             st.markdown('#### <center> Input 데이터프레임</center>',unsafe_allow_html=True)
             st.dataframe(inputDf.iloc[:,:4],hide_index=True,use_container_width=True)
             st.dataframe(inputDf.iloc[:,4:],hide_index=True,use_container_width=True)
-        st.dataframe(model.predict(inputDf))
         with final_col2:
             st.markdown('#### <center> Output : 3개 클래스로 분류될 확률</center>',unsafe_allow_html=True)
             st.markdown(f"##### <center> 0 : 무승부 -> {prediction['Draw(0)'][0]*100} %</center>",unsafe_allow_html=True)
